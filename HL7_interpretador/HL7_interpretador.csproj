@@ -44,8 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\Parser.cs" />
-    <Compile Include="Entity\ORM-O01-v2_2.cs" />
-    <Compile Include="Entity\ORM-O01-v2_3.cs" />
+    <Compile Include="Entity\ADT-A04.cs" />
+    <Compile Include="Entity\ADT-A08.cs" />
     <Compile Include="Entity\ORM-O01.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
