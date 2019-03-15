@@ -12,7 +12,6 @@ namespace HL7_interpretador.Entity
         public string Nombre { get; set; }
         public string Sexo { get; set; }
         public double Peso { get; set; }
-        public string MedicoDeReferencia { get; set; }
 
         public Cliente()
         {
@@ -20,7 +19,6 @@ namespace HL7_interpretador.Entity
             this.Nombre = "";
             this.Sexo = "";
             this.Peso = 0;
-            this.MedicoDeReferencia = "";
         }
 
         public Cliente(string id, string nombre, string sexo, double peso, string medico)
@@ -29,7 +27,6 @@ namespace HL7_interpretador.Entity
             this.Nombre = nombre;
             this.Sexo = sexo;
             this.Peso = peso;
-            this.MedicoDeReferencia = medico;
         }
     }
 }
