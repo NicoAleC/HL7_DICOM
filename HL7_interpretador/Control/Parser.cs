@@ -8,6 +8,6 @@ namespace HL7_interpretador.Control
 {
     class Parser
     {
-
+        
     }
 }

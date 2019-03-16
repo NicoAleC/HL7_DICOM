@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Lector.cs" />
     <Compile Include="Control\Parser.cs" />
     <Compile Include="Entity\ADT-A04.cs" />
     <Compile Include="Entity\ADT-A08.cs" />

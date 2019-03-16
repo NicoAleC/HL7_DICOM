@@ -1,0 +1,7 @@
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\bin\Debug\HL7_interpretador.exe.config
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\bin\Debug\HL7_interpretador.exe
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\bin\Debug\HL7_interpretador.pdb
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\obj\Debug\HL7_interpretador.csprojAssemblyReference.cache
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\obj\Debug\HL7_interpretador.csproj.CoreCompileInputs.cache
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\obj\Debug\HL7_interpretador.exe
+C:\Users\chinc\source\repos\HL7_DICOM\HL7_interpretador\obj\Debug\HL7_interpretador.pdb
