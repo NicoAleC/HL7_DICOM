@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace HL7_interpretador.formularios
 {
-    public partial class solicitudes_pendientes : Form
+    public partial class lista_de_trabajo : Form
     {
-        public solicitudes_pendientes()
+        public lista_de_trabajo()
         {
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
