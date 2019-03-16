@@ -13,8 +13,8 @@ namespace HL7_interpretador
         {
             Lector lector = new Lector();
             string nombre = "ADT-A01";
-            string[] prueba = lector.GetVersionTipo(@"..\\..\\HL7-ejemplos\\" + nombre + ".txt");
-            string mensaje = lector.GetMensaje(@"..\\..\\HL7-ejemplos\\" + nombre + ".txt");
+            string[] prueba = lector.GetVersionTipo(@"..\\..\\..\\HL7-ejemplos\\" + nombre + ".txt");
+            string mensaje = lector.GetMensaje(@"..\\..\\..\\HL7-ejemplos\\" + nombre + ".txt");
             foreach(string c in prueba)
             {
                 Console.WriteLine(c);
