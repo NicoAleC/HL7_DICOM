@@ -9,40 +9,53 @@ namespace HL7_interpretador.Control
 {
     class Parser
     {
-        public ORM_O01 Parse_ORM_O01(string mensaje, string version)
+
+
+        public bool Parse_ORM_O01(string mensaje, string version)
         {
             ORM_O01 orm_o01 = new ORM_O01();
             string[] aux = mensaje.Split('\n');
+            bool correcto = true;
+            orm_o01.version = version;
 
             switch (version)
             {
                 case "2.2":
-                    orm_o01.ORM_O01_v2_2();
                     for (int i = 0; i < mensaje.Length; i++)
                     {
                         string[] seccion = aux[i].Split('|');
                         switch (seccion[0])
                         {
                             case "MSH":
+                                orm_o01.MSH = new string[seccion.Length];
                                 orm_o01.MSH = seccion;
                                 break;
                             case "PID":
+                                orm_o01.PID = new string[seccion.Length];
                                 orm_o01.PID = seccion;
                                 break;
                             case "ORC":
+                                orm_o01.ORC = new string[seccion.Length];
                                 orm_o01.ORC = seccion;
                                 break;
                             case "OBR":
+                                orm_o01.OBR = new string[seccion.Length];
                                 orm_o01.OBR = seccion;
                                 break;
                             case "NTE":
+                                orm_o01.NTE = new string[seccion.Length];
                                 orm_o01.NTE = seccion;
                                 break;
                         }
                     }
+
+                    if(orm_o01.MSH.Length <= 0 && orm_o01.PID.Length <= 0 && orm_o01.ORC.Length <= 0 && orm_o01.OBR.Length <= 0 && orm_o01.NTE.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
                     break;
                 case "2.3":
-                    orm_o01.ORM_O01_v2_3();
                     for (int i = 0; i < mensaje.Length; i++)
                     {
                         string[] seccion = aux[i].Split('|');
@@ -68,21 +81,35 @@ namespace HL7_interpretador.Control
                                 break;
                         }
                     }
+
+                    if (orm_o01.MSH.Length <= 0 && orm_o01.PID.Length <= 0 && orm_o01.PV1.Length <= 0 && orm_o01.IN1.Length <= 0 && orm_o01.ORC.Length <= 0 && orm_o01.OBX.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
                     break;
             }
-
-            return orm_o01;
+            if (correcto)
+            {
+                return correcto;
+            }
+            else
+            {
+                return correcto;
+            }
+            
         }
 
-        public ADT_A08 Parse_ADT_A08(string mensaje, string version)
+        public bool Parse_ADT_A08(string mensaje, string version)
         {
             ADT_A08 adt_a08 = new ADT_A08();
             string[] aux = mensaje.Split('\n');
+            bool correcto = true;
+            adt_a08.version = version;
 
             switch (version)
             {
                 case "2.2":
-                    adt_a08.ADT_A08_v2_2();
                     for (int i = 0; i < aux.Length; i++)
                     {
                         string[] seccion = aux[i].Split('|');
@@ -105,9 +132,14 @@ namespace HL7_interpretador.Control
                                 break;
                         }
                     }
+
+                    if(adt_a08.MSH.Length <= 0 && adt_a08.EVN.Length <= 0 && adt_a08.PID.Length <= 0 && adt_a08.PV1.Length <= 0 && adt_a08.IN1.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
                     break;
                 case "2.3":
-                    adt_a08.ADT_A08_v2_3();
                     for (int i = 0; i < aux.Length; i++)
                     {
                         string[] seccion = aux[i].Split('|');
@@ -133,20 +165,36 @@ namespace HL7_interpretador.Control
                                 break;
                         }
                     }
+
+                    if (adt_a08.MSH.Length <= 0 && adt_a08.EVN.Length <= 0 && adt_a08.PID.Length <= 0 && adt_a08.PV1.Length <= 0 && adt_a08.PR1.Length <= 0 && adt_a08.IN1.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
                     break;
             }
 
-            return adt_a08;
+            if (correcto)
+            {
+                return correcto;
+            }
+            else
+            {
+                return correcto;
+            }
+
         }
 
-        public ADT_A04 Parse_ADT_A04(string mensaje, string version)
+        public bool Parse_ADT_A04(string mensaje, string version)
         {
             ADT_A04 adt_a04 = new ADT_A04();
             string[] aux = mensaje.Split('\n');
+            bool correcto = true;
+            adt_a04.version = version;
+
             switch (version)
             {
                 case "2.2":
-                    adt_a04.ADT_A04_v2_2();
                     for (int i = 0; i < aux.Length; i++)
                     {
                         string[] seccion = aux[i].Split('|');
@@ -169,9 +217,14 @@ namespace HL7_interpretador.Control
                                 break;
                         }
                     }
+
+                    if(adt_a04.MSH.Length <= 0 && adt_a04.EVN.Length <= 0 && adt_a04.PID.Length <= 0 && adt_a04.PV1.Length <= 0 && adt_a04.IN1.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
                     break;
                 case "2.3":
-                    adt_a04.ADT_A04_v2_3();
                     for (int i = 0; i < aux.Length; i++)
                     {
                         string[] seccion = aux[i].Split('|');
@@ -197,10 +250,24 @@ namespace HL7_interpretador.Control
                                 break;
                         }
                     }
+
+                    if (adt_a04.MSH.Length <= 0 && adt_a04.EVN.Length <= 0 && adt_a04.PID.Length <= 0 && adt_a04.PV1.Length <= 0 && adt_a04.PR1.Length <= 0 && adt_a04.IN1.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
                     break;
             }
 
-            return adt_a04;
+            if (correcto)
+            {
+                return correcto;
+            }
+            else
+            {
+                return correcto;
+            }
+
         }
     }
 }
