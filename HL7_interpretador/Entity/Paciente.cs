@@ -6,29 +6,26 @@ using System.Threading.Tasks;
 
 namespace HL7_interpretador.Entity
 {
-    class Cliente
+    class Paciente
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Sexo { get; set; }
-        public double Peso { get; set; }
-        public string Nacimiento { get; set; }
+        public DateTime Nacimiento { get; set; }
 
-        public Cliente()
+        public Paciente()
         {
-            this.Id = "";
+            this.Id = 0;
             this.Nombre = "";
             this.Sexo = "";
-            this.Peso = 0;
-            this.Nacimiento = "";
+            this.Nacimiento = new DateTime();
         }
 
-        public Cliente(string id, string nombre, string sexo, double peso, string medico, string nacimiento)
+        public Paciente(int id, string nombre, string sexo, DateTime nacimiento)
         {
             this.Id = id;
             this.Nombre = nombre;
             this.Sexo = sexo;
-            this.Peso = peso;
             this.Nacimiento = nacimiento;
         }
     }

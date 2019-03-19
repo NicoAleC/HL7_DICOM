@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Admision.cs" />
     <Compile Include="Control\Lector.cs" />
     <Compile Include="Control\Parser.cs" />
+    <Compile Include="Control\PreAdmision.cs" />
+    <Compile Include="Control\Registro.cs" />
     <Compile Include="Entity\ADT-A04.cs" />
     <Compile Include="Entity\ADT-A08.cs" />
-    <Compile Include="Entity\Cliente.cs" />
+    <Compile Include="Entity\Paciente.cs" />
     <Compile Include="Entity\Estudio.cs" />
     <Compile Include="Entity\ORM-O01.cs" />
     <Compile Include="Program.cs" />

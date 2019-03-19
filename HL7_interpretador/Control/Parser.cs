@@ -23,28 +23,28 @@ namespace HL7_interpretador.Control
                 case "2.2":
                     for (int i = 0; i < mensaje.Length; i++)
                     {
-                        string[] seccion = aux[i].Split('|');
-                        switch (seccion[0])
+                        string[] segmento = aux[i].Split('|');
+                        switch (segmento[0])
                         {
                             case "MSH":
-                                orm_o01.MSH = new string[seccion.Length];
-                                orm_o01.MSH = seccion;
+                                orm_o01.MSH = new string[segmento.Length];
+                                orm_o01.MSH = segmento;
                                 break;
                             case "PID":
-                                orm_o01.PID = new string[seccion.Length];
-                                orm_o01.PID = seccion;
+                                orm_o01.PID = new string[segmento.Length];
+                                orm_o01.PID = segmento;
                                 break;
                             case "ORC":
-                                orm_o01.ORC = new string[seccion.Length];
-                                orm_o01.ORC = seccion;
+                                orm_o01.ORC = new string[segmento.Length];
+                                orm_o01.ORC = segmento;
                                 break;
                             case "OBR":
-                                orm_o01.OBR = new string[seccion.Length];
-                                orm_o01.OBR = seccion;
+                                orm_o01.OBR = new string[segmento.Length];
+                                orm_o01.OBR = segmento;
                                 break;
                             case "NTE":
-                                orm_o01.NTE = new string[seccion.Length];
-                                orm_o01.NTE = seccion;
+                                orm_o01.NTE = new string[segmento.Length];
+                                orm_o01.NTE = segmento;
                                 break;
                         }
                     }
@@ -58,26 +58,26 @@ namespace HL7_interpretador.Control
                 case "2.3":
                     for (int i = 0; i < mensaje.Length; i++)
                     {
-                        string[] seccion = aux[i].Split('|');
-                        switch (seccion[0])
+                        string[] segmento = aux[i].Split('|');
+                        switch (segmento[0])
                         {
                             case "MSH":
-                                orm_o01.MSH = seccion;
+                                orm_o01.MSH = segmento;
                                 break;
                             case "PID":
-                                orm_o01.PID = seccion;
+                                orm_o01.PID = segmento;
                                 break;
                             case "PV1":
-                                orm_o01.PV1 = seccion;
+                                orm_o01.PV1 = segmento;
                                 break;
                             case "IN1":
-                                orm_o01.IN1 = seccion;
+                                orm_o01.IN1 = segmento;
                                 break;
                             case "ORC":
-                                orm_o01.ORC = seccion;
+                                orm_o01.ORC = segmento;
                                 break;
                             case "OBX":
-                                orm_o01.OBX = seccion;
+                                orm_o01.OBX = segmento;
                                 break;
                         }
                     }
@@ -112,23 +112,23 @@ namespace HL7_interpretador.Control
                 case "2.2":
                     for (int i = 0; i < aux.Length; i++)
                     {
-                        string[] seccion = aux[i].Split('|');
-                        switch (seccion[0])
+                        string[] segmento = aux[i].Split('|');
+                        switch (segmento[0])
                         {
                             case "MSH":
-                                adt_a08.MSH = seccion;
+                                adt_a08.MSH = segmento;
                                 break;
                             case "EVN":
-                                adt_a08.EVN = seccion;
+                                adt_a08.EVN = segmento;
                                 break;
                             case "PID":
-                                adt_a08.PID = seccion;
+                                adt_a08.PID = segmento;
                                 break;
                             case "PV1":
-                                adt_a08.PV1 = seccion;
+                                adt_a08.PV1 = segmento;
                                 break;
                             case "IN1":
-                                adt_a08.IN1 = seccion;
+                                adt_a08.IN1 = segmento;
                                 break;
                         }
                     }
@@ -188,6 +188,7 @@ namespace HL7_interpretador.Control
         public bool Parse_ADT_A04(string mensaje, string version)
         {
             ADT_A04 adt_a04 = new ADT_A04();
+            RegistrarActualizar registro = new RegistrarActualizar();
             string[] aux = mensaje.Split('\n');
             bool correcto = true;
             adt_a04.version = version;
@@ -261,6 +262,7 @@ namespace HL7_interpretador.Control
 
             if (correcto)
             {
+                registro.RegistrarPaciente(adt_a04);
                 return correcto;
             }
             else

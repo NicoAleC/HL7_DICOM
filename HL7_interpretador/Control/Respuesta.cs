@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace HL7_interpretador.Control
 {
-    class Registro
+    class Respuesta
     {
-
     }
 }
