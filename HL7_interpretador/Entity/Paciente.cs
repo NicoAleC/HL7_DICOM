@@ -28,5 +28,10 @@ namespace HL7_interpretador.Entity
             this.Sexo = sexo;
             this.Nacimiento = nacimiento;
         }
+
+        public string ImprimirPaciente()
+        {
+            return "Id: " + this.Id + "\nNombre: " + this.Nombre + "\nSexo: " + this.Sexo + "\nFecha de nacimiento: " + this.Nacimiento.ToShortDateString() + "\n";
+        }
     }
 }
