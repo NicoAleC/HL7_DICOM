@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\Admision.cs" />
+    <Compile Include="Control\Base_de_datos.cs" />
     <Compile Include="Control\Lector.cs" />
     <Compile Include="Control\Parser.cs" />
     <Compile Include="Control\PreAdmision.cs" />

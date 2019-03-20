@@ -31,7 +31,7 @@ namespace HL7_interpretador.Entity
 
         public string ImprimirPaciente()
         {
-            return "Id: " + this.Id + "\nNombre: " + this.Nombre + "\nSexo: " + this.Sexo + "\nFecha de nacimiento: " + this.Nacimiento.ToShortDateString() + "\n";
+            return "\nId: " + this.Id + "\nNombre: " + this.Nombre + "\nSexo: " + this.Sexo + "\nFecha de nacimiento: " + this.Nacimiento.ToShortDateString() + "\n";
         }
     }
 }
