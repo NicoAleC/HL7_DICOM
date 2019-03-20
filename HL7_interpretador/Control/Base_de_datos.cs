@@ -18,7 +18,8 @@ namespace HL7_interpretador.Control
                 {
                     OleDbConnectionStringBuilder builder = new OleDbConnectionStringBuilder();
                     builder.Provider = "Microsoft.ACE.OLEDB.12.0";
-                    builder.DataSource = "RIS.accdb";
+                    //builder.Provider = "SQLOLEDB";
+                    builder.DataSource = "..\\..\\..\\RIS.accdb";
                     conexion = new OleDbConnection(builder.ToString());
                     conexion.Open();
                 }
@@ -30,13 +31,13 @@ namespace HL7_interpretador.Control
             return conexion;
         }
 
-        public static OleDbDataReader Leer(string sql)
+        public static OleDbDataReader Leer(String sql)
         {
             OleDbCommand command = new OleDbCommand(sql, GetConexion());
             return command.ExecuteReader();
         }
 
-        public static void Ejecutar(string sql)
+        public static void Ejecutar(String sql)
         {
             OleDbCommand command = new OleDbCommand(sql, GetConexion());
             command.ExecuteNonQuery();

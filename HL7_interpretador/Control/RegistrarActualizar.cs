@@ -27,6 +27,7 @@ namespace HL7_interpretador.Control
                 string fecha = adt.PID[7].Substring(6, 2) + "/" + adt.PID[7].Substring(4, 2) + "/" + adt.PID[7].Substring(0, 4);
                 Paciente paciente = new Paciente(Int32.Parse(adt.PID[2]), adt.PID[5].Replace(' ', '^'), adt.PID[8], DateTime.Parse(fecha));
                 //Console.WriteLine(adt.PID[2] + "\n" + adt.PID[5] + "\n" + adt.PID[8] + "\n" + fecha);
+                Base_de_datos.Ejecutar("INSERT INTO PACIENTE (ID, NOMBRE, SEXO, FECHANACIMIENTO) VALUES (" + paciente.Id + ",\"" + paciente.Nombre + "\",\"" + paciente.Sexo + "\"," + fecha + ")");
                 Console.WriteLine(paciente.ImprimirPaciente());
             }
             return correcto;
