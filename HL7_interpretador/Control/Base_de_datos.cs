@@ -33,14 +33,30 @@ namespace HL7_interpretador.Control
 
         public static OleDbDataReader Leer(String sql)
         {
-            OleDbCommand command = new OleDbCommand(sql, GetConexion());
-            return command.ExecuteReader();
+            OleDbCommand command = new OleDbCommand();
+            try
+            {
+                command = new OleDbCommand(sql, GetConexion());
+                return command.ExecuteReader();
+            }
+            catch (OleDbException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
         }
 
         public static void Ejecutar(String sql)
         {
-            OleDbCommand command = new OleDbCommand(sql, GetConexion());
-            command.ExecuteNonQuery();
+            try
+            {
+                OleDbCommand command = new OleDbCommand(sql, GetConexion());
+                command.ExecuteNonQuery();
+            }
+            catch (OleDbException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

@@ -258,6 +258,39 @@ namespace HL7_interpretador.Control
                     }
 
                     break;
+                case "2.4":
+                    for (int i = 0; i < aux.Length; i++)
+                    {
+                        string[] seccion = aux[i].Split('|');
+                        switch (seccion[0])
+                        {
+                            case "MSH":
+                                adt_a04.MSH = seccion;
+                                break;
+                            case "EVN":
+                                adt_a04.EVN = seccion;
+                                break;
+                            case "PID":
+                                adt_a04.PID = seccion;
+                                break;
+                            case "PV1":
+                                adt_a04.PV1 = seccion;
+                                break;
+                            case "PR1":
+                                adt_a04.PR1 = seccion;
+                                break;
+                            case "IN1":
+                                adt_a04.IN1 = seccion;
+                                break;
+                        }
+                    }
+
+                    if (adt_a04.MSH.Length <= 0 && adt_a04.EVN.Length <= 0 && adt_a04.PID.Length <= 0 && adt_a04.PV1.Length <= 0 && adt_a04.PR1.Length <= 0 && adt_a04.IN1.Length <= 0)
+                    {
+                        correcto = false;
+                    }
+
+                    break;
             }
 
             if (correcto)

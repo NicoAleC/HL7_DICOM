@@ -36,40 +36,73 @@ namespace HL7_interpretador.Control
             switch (condiciones[1])
             {
                 case "2.2":
+                    Console.Write("Mensaje recibido v: " + condiciones[1]);
                     switch (condiciones[0])
                     {
                         case "ADT^A04":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
                             p.Parse_ADT_A04(mensaje, condiciones[1]);
                             break;
                         case "ADT^A08":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
                             p.Parse_ADT_A08(mensaje, condiciones[1]);
                             break;
                         case "ORM^O01":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
                             p.Parse_ORM_O01(mensaje, condiciones[1]);
                             break;
                         default:
+                            Console.WriteLine("\nTipo de mensaje no soportado %s, enviando NACK de rechazo", condiciones[0]);
                             tipo = false;
                             break;
                     }
                     break;
                 case "2.3":
+                    Console.Write("Mensaje recibido v: " + condiciones[1]);
                     switch (condiciones[0])
                     {
                         case "ADT^A04":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
                             p.Parse_ADT_A04(mensaje, condiciones[1]);
                             break;
                         case "ADT^A08":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
                             p.Parse_ADT_A08(mensaje, condiciones[1]);
                             break;
                         case "ORM^O01":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
                             p.Parse_ORM_O01(mensaje, condiciones[1]);
                             break;
                         default:
+                            Console.WriteLine("\nTipo de mensaje no soportado %s, enviando NACK de rechazo", condiciones[0]);
+                            tipo = false;
+                            break;
+                    }
+                    break;
+                case "2.4":
+                    Console.Write("Mensaje recibido v: " + condiciones[1]);
+                    switch (condiciones[0])
+                    {
+                        case "ADT^A04":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
+                            p.Parse_ADT_A04(mensaje, condiciones[1]);
+                            break;
+                        case "ADT^A08":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
+                            p.Parse_ADT_A08(mensaje, condiciones[1]);
+                            break;
+                        case "ORM^O01":
+                            Console.WriteLine(" tipo: " + condiciones[0]);
+                            p.Parse_ORM_O01(mensaje, condiciones[1]);
+                            break;
+                        default:
+                            Console.WriteLine("\nTipo de mensaje no soportado %s, enviando NACK de rechazo", condiciones[0]);
                             tipo = false;
                             break;
                     }
                     break;
                 default:
+                    Console.WriteLine("version de HL7 no soportada, enviando NACK de rechazo");
                     version = false;
                     break;
             }

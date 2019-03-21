@@ -22,6 +22,7 @@ namespace HL7_interpretador
             }
             Console.Write(mensaje);*/
             Console.ReadKey();
+            Base_de_datos.conexion.Close();
         }
     }
 }
