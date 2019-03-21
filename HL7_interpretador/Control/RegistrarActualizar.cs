@@ -34,7 +34,9 @@ namespace HL7_interpretador.Control
             if(paciente.Id > 0)
             {
                 Base_de_datos.Ejecutar("INSERT INTO PACIENTE (ID, NOMBRE, SEXO, FECHANACIMIENTO) VALUES (" + paciente.Id + ",\"" + paciente.Nombre + "\",\"" + paciente.Sexo + "\"," + paciente.Nacimiento.ToShortDateString() + ")");
-                Console.WriteLine(paciente.ImprimirPaciente());
+                OleDbDataReader leer = Base_de_datos.Leer("SELECT * FROM PACIENTE WHERE ID = " + adt.PID[3].Split('^')[0]);
+                Paciente aux = new Paciente(Int32.Parse(leer.GetString(1)), leer.GetString(2), leer.GetString(3), DateTime.Parse(leer.GetString(4)));
+                Console.WriteLine(aux.ImprimirPaciente());
             }
 
             return correcto;
@@ -49,7 +51,10 @@ namespace HL7_interpretador.Control
             }
             else
             {
-                Base_de_datos.Ejecutar("UPDATE PACIENTE SET NOMBRE = \"" + adt.PID[5].Replace('^', ' ') + "\", SEXO = \"" + adt.PID[8] + "\", FECHANACIMIENTO = \"" + adt.PID[7] + "\" WHERE ID = " + adt.PID[3].Split('^')[0]);
+                string fecha = adt.PID[7].Substring(6, 2) + "/" + adt.PID[7].Substring(4, 2) + "/" + adt.PID[7].Substring(0, 4);
+                string[] aux = adt.PID[5].Split('^');
+                string nombre = aux[1] + " " + aux[2] + " " + aux[0];
+                Base_de_datos.Ejecutar("UPDATE PACIENTE SET NOMBRE = \"" + nombre + "\", SEXO = \"" + adt.PID[8] + "\", FECHANACIMIENTO = \"" + fecha + "\" WHERE ID = " + adt.PID[3].Split('^')[0]);
                 OleDbDataReader leer = Base_de_datos.Leer("SELECT * FROM PACIENTE WHERE ID = " + adt.PID[3].Split('^')[0]);
                 Paciente paciente = new Paciente(Int32.Parse(leer.GetString(1)), leer.GetString(2), leer.GetString(3), DateTime.Parse(leer.GetString(4)));
                 Console.WriteLine(paciente.ImprimirPaciente());
