@@ -12,7 +12,7 @@ namespace HL7_interpretador
         static void Main(string[] args)
         {
             Lector lector = new Lector();
-            string nombre = "ADT-A04";
+            string nombre = "ORM-O01_";
             lector.LeerMensaje(@"..\\..\\..\\HL7-ejemplos\\" + nombre + ".txt");
             /*string[] prueba = lector.GetVersionTipo(@"..\\..\\..\\HL7-ejemplos\\" + nombre + ".txt");
             string mensaje = lector.GetMensaje(@"..\\..\\..\\HL7-ejemplos\\" + nombre + ".txt");
