@@ -8,7 +8,7 @@ namespace HL7_interpretador.Entity
 {
     class Estudio
     {
-        public Paciente Paciente { get; set; }
+        public int Paciente { get; set; }
         public string MedicoDeReferencia { get; set; }
         public int IdMedico { get; set; }
         public string EstudioRequerido { get; set; }
@@ -16,20 +16,25 @@ namespace HL7_interpretador.Entity
 
         public Estudio()
         {
-            this.Paciente = new Paciente();
+            this.Paciente = 0;
             this.MedicoDeReferencia = "";
             this.IdMedico = 0;
             this.EstudioRequerido = "";
             this.FechaEstudio = new DateTime();
         }
 
-        public Estudio(Paciente paciente, string medico, int idm, string estudio, DateTime fechaEstudio)
+        public Estudio(int paciente, string medico, int idm, string estudio, DateTime fechaEstudio)
         {
             this.Paciente = paciente;
             this.MedicoDeReferencia = medico;
             this.IdMedico = idm;
             this.EstudioRequerido = estudio;
             this.FechaEstudio = fechaEstudio;
+        }
+
+        public string ImprimirEstudio()
+        {
+            return "ID paciente: " + Paciente + "\nMédico de referencia: " + MedicoDeReferencia + "\nID Médico: " + IdMedico + "\nEstudio requerido: " + EstudioRequerido + "\nFecha de estudio: " + FechaEstudio.ToLongDateString();
         }
     }
 }
