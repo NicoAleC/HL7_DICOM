@@ -31,7 +31,7 @@ namespace HL7_interpretador.Control
             return conexion;
         }
 
-        public static OleDbDataReader Leer(String sql)
+        public static OleDbDataReader Leer(string sql)
         {
             OleDbCommand command = new OleDbCommand();
             try
@@ -46,7 +46,7 @@ namespace HL7_interpretador.Control
             }
         }
 
-        public static void Ejecutar(String sql)
+        public static void Ejecutar(string sql)
         {
             try
             {

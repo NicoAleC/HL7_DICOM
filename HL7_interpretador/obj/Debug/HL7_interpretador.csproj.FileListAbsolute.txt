@@ -12,3 +12,9 @@ C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_in
 C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.csproj.CoreCompileInputs.cache
 C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.exe
 C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.pdb
+C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.formularios.Inicio.resources
+C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.formularios.lista_de_trabajo.resources
+C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.formularios.Solicitud1.resources
+C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.formularios.solicitudes_pendientes.resources
+C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.Properties.Resources.resources
+C:\Users\chinc\source\repos\HL7-interpretador\HL7_interpretador\obj\Debug\HL7_interpretador.csproj.GenerateResource.cache

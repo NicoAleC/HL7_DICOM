@@ -17,7 +17,7 @@ namespace HL7_interpretador.Control
                 TcpListener myList = new TcpListener(IPAddress.Any, 8010);
                 myList.Start();
 
-                Console.WriteLine("Server running at port 8001...");
+                Console.WriteLine("Server running at port 8010...");
                 Console.WriteLine("Waiting for a connection...");
 
                 Socket s = myList.AcceptSocket();
