@@ -27,10 +27,13 @@ namespace HL7_interpretador.Control
             string modalidad = "";
             if (estudio_requerido.Contains("X-RAY"))
             {
-                modalidad = "X-RAY";
+                modalidad = "XA";
             } else if(estudio_requerido.Contains("ECOGRAPHY"))
             {
-                modalidad = "ECOGRAPHY";
+                modalidad = "US";
+            } else if(estudio_requerido.Contains("MAGNETIC RESONANCE"))
+            {
+                modalidad = "MR";
             }
             Base_de_datos.Ejecutar("insert into estudio (idpaciente,idmedico,modalidad,descripcion,fecha) values (" + estudio.Paciente + "," + estudio.IdMedico + ",\"" + modalidad + "\",\"" + estudio.EstudioRequerido + "\",\"" + estudio.FechaEstudio.ToLongDateString() + "\")");
             Console.WriteLine(estudio.ImprimirEstudio());
