@@ -47,13 +47,13 @@
             this.FECHA});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(642, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(613, 426);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(678, 194);
+            this.button1.Location = new System.Drawing.Point(659, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 46);
             this.button1.TabIndex = 1;
@@ -69,6 +69,7 @@
             // 
             this.MODALIDAD.HeaderText = "MODALIDAD";
             this.MODALIDAD.Name = "MODALIDAD";
+            this.MODALIDAD.Width = 150;
             // 
             // ANALISIS_REQUERIDO
             // 
@@ -80,6 +81,7 @@
             // 
             this.FECHA.HeaderText = "FECHA";
             this.FECHA.Name = "FECHA";
+            this.FECHA.Width = 120;
             // 
             // solicitudes_pendientes
             // 
