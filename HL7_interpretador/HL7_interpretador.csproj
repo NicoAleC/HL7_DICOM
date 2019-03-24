@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +58,24 @@
     <Compile Include="Entity\Paciente.cs" />
     <Compile Include="Entity\Estudio.cs" />
     <Compile Include="Entity\ORM-O01.cs" />
+    <Compile Include="formularios\lista_de_trabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\lista_de_trabajo.Designer.cs">
+      <DependentUpon>lista_de_trabajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\Solicitud1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\Solicitud1.Designer.cs">
+      <DependentUpon>Solicitud1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\solicitudes_pendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\solicitudes_pendientes.Designer.cs">
+      <DependentUpon>solicitudes_pendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="formularios\lista_de_trabajo.resx">
+      <DependentUpon>lista_de_trabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\Solicitud1.resx">
+      <DependentUpon>Solicitud1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\solicitudes_pendientes.resx">
+      <DependentUpon>solicitudes_pendientes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
