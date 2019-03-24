@@ -50,6 +50,7 @@
     <Compile Include="Control\PreAdmision.cs" />
     <Compile Include="Control\RegistrarActualizar.cs" />
     <Compile Include="Control\Respuesta.cs" />
+    <Compile Include="Control\Servidor.cs" />
     <Compile Include="Entity\ADT-A04.cs" />
     <Compile Include="Entity\ADT-A08.cs" />
     <Compile Include="Entity\Paciente.cs" />
