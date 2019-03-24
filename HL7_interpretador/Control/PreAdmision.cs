@@ -37,6 +37,7 @@ namespace HL7_interpretador.Control
             }
             Base_de_datos.Ejecutar("insert into estudio (idpaciente,idmedico,modalidad,descripcion,fecha) values (" + estudio.Paciente + "," + estudio.IdMedico + ",\"" + modalidad + "\",\"" + estudio.EstudioRequerido + "\",\"" + estudio.FechaEstudio.ToLongDateString() + "\")");
             Console.WriteLine(estudio.ImprimirEstudio());
+            Respuesta.Aceptado();
             return correcto;
         }
     }

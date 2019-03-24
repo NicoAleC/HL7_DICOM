@@ -154,6 +154,7 @@ namespace HL7_interpretador.Control
             }
             else
             {
+                Respuesta.Rechazo();
                 return correcto;
             }
             
@@ -274,6 +275,7 @@ namespace HL7_interpretador.Control
             }
             else
             {
+                Respuesta.Rechazo();
                 return correcto;
             }
 
@@ -394,6 +396,7 @@ namespace HL7_interpretador.Control
             }
             else
             {
+                Respuesta.Rechazo();
                 return correcto;
             }
 

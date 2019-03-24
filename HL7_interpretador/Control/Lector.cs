@@ -54,6 +54,7 @@ namespace HL7_interpretador.Control
                         default:
                             Console.WriteLine("\nTipo de mensaje no soportado %s, enviando NACK de rechazo", condiciones[0]);
                             tipo = false;
+                            Respuesta.Rechazo();
                             break;
                     }
                     break;
@@ -76,6 +77,7 @@ namespace HL7_interpretador.Control
                         default:
                             Console.WriteLine("\nTipo de mensaje no soportado %s, enviando NACK de rechazo", condiciones[0]);
                             tipo = false;
+                            Respuesta.Rechazo();
                             break;
                     }
                     break;
@@ -98,12 +100,14 @@ namespace HL7_interpretador.Control
                         default:
                             Console.WriteLine("\nTipo de mensaje no soportado %s, enviando NACK de rechazo", condiciones[0]);
                             tipo = false;
+                            Respuesta.Rechazo();
                             break;
                     }
                     break;
                 default:
                     Console.WriteLine("version de HL7 no soportada, enviando NACK de rechazo");
                     version = false;
+                    Respuesta.Rechazo();
                     break;
             }
 
