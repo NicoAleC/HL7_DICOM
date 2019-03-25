@@ -20,7 +20,6 @@ namespace HL7_interpretador.Control
         public string genero { get; set; }
         public string modalidad { get; set; }
 
-        //Todos los atributos deben ser pasados en formato string
         public Admision(string nombrePaciente, string fechaNacimiento, string pid, string accNumber, string studyDate, string studyDesc, string medicoRef, string genero, string modalidad)
         {
             this.nombrePaciente = nombrePaciente;
@@ -39,7 +38,7 @@ namespace HL7_interpretador.Control
 
         public string EscribirArchivoTxt()
         {
-            string docPath = "..\\..\\..\\DMWLTXT";
+            string docPath = "C:\\Users\\chinc\\source\\repos\\HL7-interpretador\\DMWLTXT\\";
             string fileName = "worklistF" + accNumber + ".dump";
             Random random = new Random();
 
@@ -70,6 +69,15 @@ namespace HL7_interpretador.Control
                 outputFile.WriteLine("# Used TransferSyntax: Little Endian Explicit");
                 outputFile.WriteLine("(0008,0005) CS [ISO_IR 100]                             #  10, 1 SpecificCharacterSet");
                 outputFile.WriteLine("(0008,0050) SH [" + accNumber + "]                                  #   6, 1 AccessionNumber");
+
+
+                outputFile.WriteLine("(0008,1030) LO [" + studyDesc + "]                                  #   100, 1 StudyDescription");
+
+                outputFile.WriteLine("(0008,0020) DA [" + studyDate + "]                                  #   8, 1 StudyDate");
+
+                outputFile.WriteLine("(0038,0010) LO [" + modalidad + "]                                  #   8, 1 AdmissionID");
+
+
                 outputFile.WriteLine("(0010,0010) PN [" + nombreP[0] + "^" + nombreP[1] + "]                        #  16, 1 PatientName");
                 outputFile.WriteLine("(0010,0020) LO [" + pid + "]                                #   8, 1 PatientID");
                 outputFile.WriteLine("(0010,0030) DA [" + fechaNacimiento + "]                               #   8, 1 PatientBirthDate");
@@ -78,13 +86,13 @@ namespace HL7_interpretador.Control
                 outputFile.WriteLine("(0010,2110) LO []                                 #   6, 1 Allergies");
                 outputFile.WriteLine("(0020,000d) UI [1.2.276.0.7230010.3.2." + Convert.ToString(random.Next(100, 999)) + "]              #  26, 1 StudyInstanceUID");
                 outputFile.WriteLine("(0032,1032) PN [" + medicoRef + "]                                  #   6, 1 RequestingPhysician\n");
-                outputFile.WriteLine("(0032,1060) LO [" + studyDesc + "]                                  #   6, 1 RequestedProcedureDescription");
+                outputFile.WriteLine("(0032,1060) LO []                                  #   6, 1 RequestedProcedureDescription");
                 outputFile.WriteLine("(0040,0100) SQ (Sequence with explicit length #=1)      # 176, 1 ScheduledProcedureStepSequence");
                 outputFile.WriteLine("  (fffe,e000) na (Item with explicit length #=12)         # 168, 1 Item");
-                outputFile.WriteLine("    (0008,0060) CS [" + modalidad + "]                                     #   2, 1 Modality");
+                outputFile.WriteLine("    (0008,0060) CS []                                     #   2, 1 Modality");
                 outputFile.WriteLine("    (0032,1070) LO []                           #  12, 1 RequestedContrastAgent");
                 outputFile.WriteLine("    (0040,0001) AE []                              #  10, 2 ScheduledStationAETitle");
-                outputFile.WriteLine("    (0040,0002) DA [" + studyDate + "]                               #   8, 1 ScheduledProcedureStepStartDate");
+                outputFile.WriteLine("    (0040,0002) DA []                               #   8, 1 ScheduledProcedureStepStartDate");
                 outputFile.WriteLine("    (0040,0003) TM []                                 #   6, 1 ScheduledProcedureStepStartTime");
                 outputFile.WriteLine("    (0040,0006) PN []                                #   8, 1 ScheduledPerformingPhysicianName");
                 outputFile.WriteLine("    (0040,0007) LO []                                 #   6, 1 ScheduledProcedureStepDescription");
@@ -112,10 +120,10 @@ namespace HL7_interpretador.Control
 
             // Use ProcessStartInfo class.
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WorkingDirectory = "..\\..\\..\\WL";
+            startInfo.WorkingDirectory = "C:\\Users\\chinc\\source\\repos\\HL7-interpretador\\DMWLTXT\\";
             startInfo.CreateNoWindow = false;
             startInfo.UseShellExecute = false;
-            startInfo.FileName = "/usr/local/Cellar/dcmtk/3.6.4/bin/dump2dcm";
+            startInfo.FileName = "D:\\DiscoD\\Recupera\\Documents\\upb\\Bioinformatica\\dcmtk-3.6.4-win64-dynamic\\bin\\dump2dcm.exe";
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             startInfo.Arguments = archivoTxt + " " + "workListF" + accNumber + ".wl";
 

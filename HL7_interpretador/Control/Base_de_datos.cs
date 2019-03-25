@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
+using HL7_interpretador.Entity;
 
 namespace HL7_interpretador.Control
 {
@@ -57,6 +58,20 @@ namespace HL7_interpretador.Control
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public static Paciente LeerPaciente(int id)
+        {
+            OleDbDataReader bpaciente = Leer("select * from paciente where id = " + id);
+            bpaciente.Read();
+            Paciente paciente = new Paciente(bpaciente.GetInt32(0), bpaciente.GetString(1), bpaciente.GetString(2), bpaciente.GetDateTime(3));
+            bpaciente.Close();
+            return paciente;
+        }
+
+        public static OleDbDataReader LeerEstudios()
+        {
+            return Leer("select * from estudio, medico, modalidad where modalidad.nombre = estudio.modalidad and medico.id = estudio.idmedico");
         }
     }
 }

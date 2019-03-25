@@ -38,7 +38,30 @@ namespace HL7_interpretador.Control
             Base_de_datos.Ejecutar("insert into estudio (idpaciente,idmedico,modalidad,descripcion,fecha) values (" + estudio.Paciente + "," + estudio.IdMedico + ",\"" + modalidad + "\",\"" + estudio.EstudioRequerido + "\",\"" + estudio.FechaEstudio.ToLongDateString() + "\")");
             Console.WriteLine(estudio.ImprimirEstudio());
             Respuesta.Aceptado();
+            Paciente paciente = Base_de_datos.LeerPaciente(estudio.Paciente);
+            string fecha = GetFecha(paciente.Nacimiento.ToShortDateString());
+            string fecha_estudio = GetFecha(estudio.FechaEstudio.ToShortDateString());
+            Random rand = new Random();
+            Admision adm = new Admision(paciente.Nombre, fecha, paciente.Id.ToString(), rand.Next(1000, 9999).ToString(), fecha_estudio, estudio.EstudioRequerido, estudio.MedicoDeReferencia, paciente.Sexo, modalidad);
+            adm.guardarEnWL();
             return correcto;
+        }
+
+        private string GetFecha(string f)
+        {
+            string[] fecha_nacimiento = f.Split('/');
+            if (fecha_nacimiento[1].Length == 1)
+            {
+                return fecha_nacimiento[2] + fecha_nacimiento[0] + "0" + fecha_nacimiento[1];
+            }
+            else if (fecha_nacimiento[0].Length == 1)
+            {
+                return fecha_nacimiento[2] + "0" + fecha_nacimiento[0] + fecha_nacimiento[1];
+            }
+            else
+            {
+                return fecha_nacimiento[2] + fecha_nacimiento[0] + fecha_nacimiento[1];
+            }
         }
     }
 }
