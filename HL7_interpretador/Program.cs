@@ -16,7 +16,7 @@ namespace HL7_interpretador
         {
             
             Lector lector = new Lector();
-            string nombre = "ORM-O01_1";
+            string nombre = "ADT-A04";
             lector.LeerMensaje(@"..\\..\\..\\HL7-ejemplos\\" + nombre + ".txt");
             Console.ReadKey();
             Base_de_datos.conexion.Close();

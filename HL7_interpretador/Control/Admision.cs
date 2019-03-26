@@ -45,6 +45,11 @@ namespace HL7_interpretador.Control
 
             string[] nombreP = nombrePaciente.Split(' ');
 
+
+            String nombre1 = nombrePaciente;
+
+            char[] nombreXXX = nombre1.ToCharArray();
+
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, fileName)))
             {
 
@@ -89,10 +94,10 @@ namespace HL7_interpretador.Control
                 outputFile.WriteLine("(0032,1060) LO []                                  #   6, 1 RequestedProcedureDescription");
                 outputFile.WriteLine("(0040,0100) SQ (Sequence with explicit length #=1)      # 176, 1 ScheduledProcedureStepSequence");
                 outputFile.WriteLine("  (fffe,e000) na (Item with explicit length #=12)         # 168, 1 Item");
-                outputFile.WriteLine("    (0008,0060) CS []                                     #   2, 1 Modality");
+                outputFile.WriteLine("    (0008,0060) CS [" + modalidad + "]                                     #   2, 1 Modality");
                 outputFile.WriteLine("    (0032,1070) LO []                           #  12, 1 RequestedContrastAgent");
-                outputFile.WriteLine("    (0040,0001) AE []                              #  10, 2 ScheduledStationAETitle");
-                outputFile.WriteLine("    (0040,0002) DA []                               #   8, 1 ScheduledProcedureStepStartDate");
+                outputFile.WriteLine("    (0040,0001) AE [" + modalidad + "TITLE" + "]                              #  10, 2 ScheduledStationAETitle");
+                outputFile.WriteLine("    (0040,0002) DA [" + studyDate + "]                               #   8, 1 ScheduledProcedureStepStartDate");
                 outputFile.WriteLine("    (0040,0003) TM []                                 #   6, 1 ScheduledProcedureStepStartTime");
                 outputFile.WriteLine("    (0040,0006) PN []                                #   8, 1 ScheduledPerformingPhysicianName");
                 outputFile.WriteLine("    (0040,0007) LO []                                 #   6, 1 ScheduledProcedureStepDescription");
@@ -103,7 +108,7 @@ namespace HL7_interpretador.Control
                 outputFile.WriteLine("    (0040,0400) LT (no value available)                     #   0, 0 CommentsOnTheScheduledProcedureStep");
                 outputFile.WriteLine("  (fffe,e00d) na (ItemDelimitationItem for re-encoding)   #   0, 0 ItemDelimitationItem");
                 outputFile.WriteLine("(fffe,e0dd) na (SequenceDelimitationItem for re-encod.) #   0, 0 SequenceDelimitationItem");
-                outputFile.WriteLine("(0040,1001) SH []                              #  10, 1 RequestedProcedureID");
+                outputFile.WriteLine("(0040,1001) SH [" + nombre1[0] + nombre1[1] + nombre1[2] + nombre1[3] + "]                              #  10, 1 RequestedProcedureID");
                 outputFile.WriteLine("(0040,1003) SH []                                    #   4, 1 RequestedProcedurePriority");
 
             }
